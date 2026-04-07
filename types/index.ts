@@ -53,8 +53,6 @@ export interface Board {
 
 export interface UserProgress {
   totalXP: number;
-  currentXP: number;
-  level: number;
   eggProgress: number;
   eggStage: number; // 0 = Egg, 1 = Baby, 2 = Adult
   creatureName: string;

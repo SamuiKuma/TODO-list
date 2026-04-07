@@ -100,21 +100,22 @@ export default function EggDisplay({ userProgress, setUserProgress }: EggDisplay
           {/* Progress to next stage */}
           {nextStage && (
             <div className="space-y-2">
-              <div className="flex justify-between text-xs text-slate-400">
-                <span>Growth Progress</span>
+              <div className="flex justify-between text-sm text-slate-300 font-medium">
+                <span>XP Progress</span>
                 <span>
-                  {userProgress.eggProgress - currentStage.xpRequired} /{" "}
-                  {nextStage.xpRequired - currentStage.xpRequired}
+                  {userProgress.eggProgress} / {nextStage.xpRequired} XP
                 </span>
               </div>
-              <div className="h-3 bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-4 bg-slate-700 rounded-full overflow-hidden border border-slate-600">
                 <div
-                  className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 transition-all duration-500 shadow-lg"
                   style={{ width: `${Math.min(progress, 100)}%` }}
                 />
               </div>
-              <p className="text-xs text-slate-400 mt-2">
-                Next: {nextStage.emoji} {nextStage.name}
+              <p className="text-sm text-slate-400 mt-2 flex items-center justify-center gap-2">
+                <span>Next evolution:</span>
+                <span className="text-lg">{nextStage.emoji}</span>
+                <span className="font-semibold text-white">{nextStage.name}</span>
               </p>
             </div>
           )}
@@ -136,17 +137,18 @@ export default function EggDisplay({ userProgress, setUserProgress }: EggDisplay
 
       {/* Stats */}
       <div className="bg-slate-800/60 rounded-lg p-4 space-y-3">
-        <div className="flex justify-between text-sm">
-          <span className="text-slate-400">Total XP</span>
-          <span className="text-white font-semibold">{userProgress.totalXP}</span>
-        </div>
+        <h4 className="text-sm font-semibold text-white mb-2">Your Stats</h4>
         <div className="flex justify-between text-sm">
           <span className="text-slate-400">Tasks Completed</span>
           <span className="text-white font-semibold">{userProgress.tasksCompleted}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-slate-400">Creature XP</span>
-          <span className="text-white font-semibold">{userProgress.eggProgress}</span>
+          <span className="text-slate-400">Total XP Earned</span>
+          <span className="text-white font-semibold">{userProgress.totalXP} XP</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-slate-400">Current Stage</span>
+          <span className="text-white font-semibold">{currentStage.emoji} {currentStage.name}</span>
         </div>
       </div>
     </div>

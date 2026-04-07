@@ -182,33 +182,19 @@ export default function Board({ board, setBoards, userProgress, setUserProgress 
     
     setUserProgress((prev) => {
       const newTotalXP = prev.totalXP + amount;
-      const newCurrentXP = prev.currentXP + amount;
-      const xpForNextLevel = prev.level * 100;
       const newEggProgress = prev.eggProgress + amount;
-
-      let newLevel = prev.level;
-      let finalCurrentXP = newCurrentXP;
-
-      // Level up logic
-      if (newCurrentXP >= xpForNextLevel) {
-        newLevel = prev.level + 1;
-        finalCurrentXP = newCurrentXP - xpForNextLevel;
-        console.log(`Level up! New level: ${newLevel}`);
-      }
 
       // Check for egg evolution
       let newEggStage = prev.eggStage;
       const nextStage = EGG_STAGES[prev.eggStage + 1];
       if (nextStage && newEggProgress >= nextStage.xpRequired) {
         newEggStage = prev.eggStage + 1;
-        console.log(`Egg evolved to stage ${newEggStage}: ${EGG_STAGES[newEggStage].name}`);
+        console.log(`🎉 Egg evolved to stage ${newEggStage}: ${EGG_STAGES[newEggStage].name} ${EGG_STAGES[newEggStage].emoji}`);
       }
 
       const updated = {
         ...prev,
         totalXP: newTotalXP,
-        currentXP: finalCurrentXP,
-        level: newLevel,
         eggProgress: newEggProgress,
         eggStage: newEggStage,
       };
