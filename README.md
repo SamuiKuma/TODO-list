@@ -1,6 +1,6 @@
 # TaskQuest - TODO List with Creature Evolution 🐉
 
-A Trello-inspired task management app with gamification. Complete tasks to earn XP and evolve your creature from an egg to a mighty dragon!
+A task management app with gamification. Complete tasks to earn XP and evolve your creature from an egg to a mighty dragon!
 
 ![TaskQuest Banner](https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue?style=for-the-badge&logo=typescript)
